@@ -64,22 +64,22 @@ namespace UtilityService
                         Body = body
                     };
 
-                    mailMessage.Headers.Add("Machine-Name", Environment.MachineName);
-                    mailMessage.Headers.Add("Machine-UserId", Environment.UserName);
-                    mailMessage.Headers.Add("OS-Version", Environment.OSVersion.VersionString);
-                    mailMessage.Headers.Add("time", DateTime.UtcNow.ToString("yyyy-MMM-dd HH:mm:ss.fff"));
+                    mailMessage.Headers.Add("DETAIL-MACHINE-NAME", Environment.MachineName);
+                    mailMessage.Headers.Add("DETAIL-MACHINE-USERID", Environment.UserName);
+                    mailMessage.Headers.Add("DETAIL-OS-VERSION", Environment.OSVersion.VersionString);
+                    mailMessage.Headers.Add("DETAIL-SENT-TIME", DateTime.UtcNow.ToString("yyyy-MMM-dd HH:mm:ss.fff"));
 
                     recipients.ForEach(x => mailMessage.To.Add(new MailAddress(x)));
                     attachmentsList?.ForEach(x => mailMessage.Attachments.Add(new Attachment(x)));
                     ccList?.ForEach(x => mailMessage.CC.Add(x));
                     bccList?.ForEach(x => mailMessage.Bcc.Add(x));
                     SmtpClient smtp = new SmtpClient { Host = _smtpHost, EnableSsl = true };
-                    NetworkCredential networkCred = new NetworkCredential { UserName = _srcUserName, Password = _srcPassword };
+                    NetworkCredential networkCred = new NetworkCredential { UserName = _srcUserId, Password = _srcPassword };
                     smtp.UseDefaultCredentials = true;
                     smtp.Credentials = networkCred;
                     smtp.Port = _smtpPort;
-                    smtp.Send(mailMessage);
                     smtp.Timeout = timeout;
+                    smtp.Send(mailMessage);
 
                     return new ResponseEntity<StatusCode>()
                     {
@@ -102,7 +102,8 @@ namespace UtilityService
                     return new ResponseEntity<StatusCode>()
                     {
                         StatusCode = StatusCode.ERROR,
-                        Error = errorResponse
+                        Error = errorResponse,
+                        Data = StatusCode.ERROR
                     };
                 }
             else
@@ -116,7 +117,8 @@ namespace UtilityService
                 return new ResponseEntity<StatusCode>()
                 {
                     StatusCode = StatusCode.ERROR,
-                    Error = errorResponse
+                    Error = errorResponse,
+                    Data = StatusCode.ERROR
                 };
             }
         }
