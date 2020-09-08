@@ -1,0 +1,12 @@
+D:\Workspace\WPFApplications\EmailService\obj\Debug\netstandard2.0\EmailService.csprojAssemblyReference.cache
+D:\Workspace\WPFApplications\EmailService\obj\Debug\netstandard2.0\EmailService.csproj.CoreCompileInputs.cache
+D:\Workspace\WPFApplications\EmailService\obj\Debug\netstandard2.0\EmailService.AssemblyInfoInputs.cache
+D:\Workspace\WPFApplications\EmailService\obj\Debug\netstandard2.0\EmailService.AssemblyInfo.cs
+D:\Workspace\WPFApplications\EmailService\bin\Debug\netstandard2.0\EmailService.deps.json
+D:\Workspace\WPFApplications\EmailService\bin\Debug\netstandard2.0\EmailService.dll
+D:\Workspace\WPFApplications\EmailService\bin\Debug\netstandard2.0\EmailService.pdb
+D:\Workspace\WPFApplications\EmailService\bin\Debug\netstandard2.0\ModelService.dll
+D:\Workspace\WPFApplications\EmailService\bin\Debug\netstandard2.0\ModelService.pdb
+D:\Workspace\WPFApplications\EmailService\obj\Debug\netstandard2.0\EmailService.csproj.CopyComplete
+D:\Workspace\WPFApplications\EmailService\obj\Debug\netstandard2.0\EmailService.dll
+D:\Workspace\WPFApplications\EmailService\obj\Debug\netstandard2.0\EmailService.pdb
