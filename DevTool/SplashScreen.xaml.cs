@@ -22,6 +22,8 @@ namespace DevTool
         public SplashScreen()
         {
             InitializeComponent();
+            string screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth.ToString();
+            string screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
         }
     }
 }

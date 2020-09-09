@@ -4,10 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DevTool"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="SplashScreen" Height="450" Width="800" >
+        WindowStyle="None"
+        Width="700" 
+        Height="450"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
-        <Image HorizontalAlignment="Left"  Stretch="Fill" Margin="0" Source="SplashScreenImage.gif" />
-
+        <Image gif:ImageBehavior.AnimatedSource="Loading (1).gif"
+               Cursor="Wait"
+               Margin="0"
+               Stretch="Fill"
+               Width="700" 
+               Height="450">
+        </Image>
     </Grid>
 </Window>
