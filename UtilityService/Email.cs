@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Threading.Tasks;
 using ModelService;
 
 namespace UtilityService
@@ -51,9 +52,9 @@ namespace UtilityService
         /// <param name="bccList">bcc list</param>
         /// <param name="attachmentsList">list of path full of attachments</param>
         /// <returns>ResponseEntity{StatusCode}</returns>
-        public ResponseEntity<StatusCode> SendEmail(List<string> recipients, string subject, string body, int timeout, List<string> ccList = null, List<string> bccList = null, List<string> attachmentsList = null)
+        public async Task<ResponseEntity<StatusCode>> SendEmail(List<string> recipients, string subject, string body, int timeout, List<string> ccList = null, List<string> bccList = null, List<string> attachmentsList = null)
         {
-            if (Internet.IsInternetConnected())
+            if ((await Internet.IsInternetConnected()).Data)
                 try
                 {
                     MailMessage mailMessage = new MailMessage
@@ -83,8 +84,8 @@ namespace UtilityService
 
                     return new ResponseEntity<StatusCode>()
                     {
-                        StatusCode = StatusCode.SENT,
-                        Data = StatusCode.SENT
+                        StatusCode = StatusCode.Sent,
+                        Data = StatusCode.Sent
                     };
                 }
                 catch (SmtpException e)
@@ -97,13 +98,13 @@ namespace UtilityService
                         ExceptionMessage = e.Message,
                         InnerException = e.InnerException?.StackTrace,
                         InnerExceptionMessage = e.InnerException?.StackTrace,
-                        ErrorCode = StatusCode.ERROR.ToString()
+                        ErrorCode = StatusCode.Error.ToString()
                     };
                     return new ResponseEntity<StatusCode>()
                     {
-                        StatusCode = StatusCode.ERROR,
+                        StatusCode = StatusCode.Error,
                         Error = errorResponse,
-                        Data = StatusCode.ERROR
+                        Data = StatusCode.Error
                     };
                 }
             else
@@ -112,13 +113,13 @@ namespace UtilityService
                 {
                     UiSafeMessage = "No Internet Access",
                     DeveloperMessage = "Check Internet connectivity",
-                    ErrorCode = StatusCode.NOINTERNETACCESS.ToString()
+                    ErrorCode = StatusCode.InternetNotConnected.ToString()
                 };
                 return new ResponseEntity<StatusCode>()
                 {
-                    StatusCode = StatusCode.ERROR,
+                    StatusCode = StatusCode.Error,
                     Error = errorResponse,
-                    Data = StatusCode.ERROR
+                    Data = StatusCode.Error
                 };
             }
         }

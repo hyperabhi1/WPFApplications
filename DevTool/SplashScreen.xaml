@@ -12,7 +12,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>
-        <Image gif:ImageBehavior.AnimatedSource="Loading (1).gif"
+        <Image gif:ImageBehavior.AnimatedSource="Resources/Loading0.gif"
                Cursor="Wait"
                Margin="0"
                Stretch="Fill"
