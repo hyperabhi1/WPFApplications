@@ -66,3 +66,16 @@ DevTool/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
 ModelService/obj/project.assets.json
 UtilityService/obj/Debug/netstandard2.0/UtilityService.assets.cache
 UtilityService/obj/project.assets.json
+ConsoleAppTest/bin/Debug/script.ps
+ConsoleAppTest/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+ConsoleAppTest/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+ConsoleAppTest/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+DevTool/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+DevTool/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+DevTool/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+DevTool/obj/Debug/TokenGenerator.g.i.cs
+ModelService/obj/Debug/netstandard2.0/ModelService.assets.cache
+ModelService/obj/ModelService.csproj.nuget.g.props
+ModelService/obj/ModelService.csproj.nuget.g.targets
+UtilityService/obj/project.assets.json
+UtilityService/obj/project.assets.json

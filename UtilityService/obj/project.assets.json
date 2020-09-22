@@ -262,6 +262,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "D:\\Projects\\jobapply\\master\\LiveCareer.JobApply\\CoreClient\\BOLD.JobApply.CoreClient\\BuildScripts\\": {},
+        "http://livecareernuget.azurewebsites.net/nuget/": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
