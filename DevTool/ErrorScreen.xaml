@@ -5,47 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DevTool"
         mc:Ignorable="d"
-        Title="Error"
         Height="450"
-        Width="800" FontFamily="Consolas" FontSize="14">
-    <!--<Grid>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="3*" />
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Row="0"
-              Grid.Column="0"
-              Background="Red" />
-
-        <Grid Grid.Row="0"
-              Grid.Column="1"
-              Background="Blue" />
-
-        <Grid Grid.Row="1"
-              Grid.Column="0"
-              Grid.ColumnSpan="2"
-              Background="Violet" />
-
-        <Grid Grid.Row="2"
-              Grid.Column="0"
-              Grid.ColumnSpan="2"
-              Background="Green" />
-
-        <StackPanel Grid.Row="3"
-                    Grid.ColumnSpan="2"
-                    Orientation="Horizontal">
-            <Button>OK</Button>
-            <Button>Cancel</Button>
-        </StackPanel>
-    </Grid>-->
-
+        Width="800" 
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        Name="RootWindow">
 </Window>

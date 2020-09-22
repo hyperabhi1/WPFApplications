@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ModelService;
 
 namespace DevTool
 {
@@ -19,9 +20,11 @@ namespace DevTool
     /// </summary>
     public partial class ErrorScreen : Window
     {
-        public ErrorScreen()
+        private readonly ErrorResponse _error;
+        public ErrorScreen(/*ErrorResponse error*/)
         {
             InitializeComponent();
+            //_error = error;
             Loaded += MyWindow_Loaded;
         }
         private void MyWindow_Loaded(object sender, RoutedEventArgs e)
@@ -30,15 +33,12 @@ namespace DevTool
             Grid dynamicGrid = new Grid
             {
                 Width = 400,
-                HorizontalAlignment = HorizontalAlignment.Left,
-                VerticalAlignment = VerticalAlignment.Top,
-                ShowGridLines = true,
-                Background = new SolidColorBrush(Colors.LightSteelBlue)
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Stretch,
+                ShowGridLines = true
             };
-            
-            
+
             dynamicGrid.ColumnDefinitions.Add(new ColumnDefinition(){ Width = new GridLength(20) });
-            dynamicGrid.ColumnDefinitions.Add(new ColumnDefinition(){ Width = GridLength.Auto });
             dynamicGrid.ColumnDefinitions.Add(new ColumnDefinition(){ Width = GridLength.Auto });
             dynamicGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(20) });
 
@@ -54,7 +54,7 @@ namespace DevTool
 
             TextBlock txtBlock1 = new TextBlock();
 
-            txtBlock1.Text = "Author Name";
+            txtBlock1.Text = "Error Details";
 
             txtBlock1.FontSize = 14;
 
@@ -64,9 +64,9 @@ namespace DevTool
 
             txtBlock1.VerticalAlignment = VerticalAlignment.Top;
 
-            Grid.SetRow(txtBlock1, 0);
+            Grid.SetRow(txtBlock1, 1);
 
-            Grid.SetColumn(txtBlock1, 0);
+            Grid.SetColumn(txtBlock1, 1);
 
 
 
@@ -228,7 +228,7 @@ namespace DevTool
             {
                 Content = dynamicGrid
             };
-            
+            RootWindow.Content = dynamicGrid;
         }
     }
 }

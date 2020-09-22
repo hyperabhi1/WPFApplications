@@ -10,12 +10,16 @@ namespace UtilityService
     {
         private static readonly HttpClient HttpClient = new HttpClient();
         private static bool _hasInternetAccess = false;
+        static Internet()
+        {
+            HttpClient.Timeout = TimeSpan.FromSeconds(3);
+        }
         /// <summary>
         /// Check if System has internet access 
         /// </summary>
-        /// <param name="address">default: http://www.google.com </param>
+        /// <param name="address">default: https://www.google.com </param>
         /// <returns>True if connected to VPN</returns>
-        public static async Task<ResponseEntity<bool>> IsInternetConnected(string address = @"http://www.google.com")
+        public static async Task<ResponseEntity<bool>> IsInternetConnected(string address = @"https://www.google.com")
         {
             try
             {
@@ -68,20 +72,18 @@ namespace UtilityService
                             StatusCode = StatusCode.VpnConnected
                         };
                     }
-                    else
+
+                    return new ResponseEntity<bool>()
                     {
-                        return new ResponseEntity<bool>()
+                        Data = false,
+                        StatusCode = (StatusCode)Enum.Parse(typeof(StatusCode), response.StatusCode.ToString()),
+                        Error = new ErrorResponse()
                         {
-                            Data = false,
-                            StatusCode = (StatusCode)Enum.Parse(typeof(StatusCode), response.StatusCode.ToString()),
-                            Error = new ErrorResponse()
-                            {
-                                UiSafeMessage = "VPN Not Connected",
-                                DeveloperMessage = "VPN Not Connected",
-                                ErrorCode = StatusCode.Error.ToString()
-                            }
-                        };
-                    }
+                            UiSafeMessage = "VPN Not Connected",
+                            DeveloperMessage = "VPN Not Connected",
+                            ErrorCode = StatusCode.Error.ToString()
+                        }
+                    };
                 }
                 catch (Exception e)
                 {
@@ -101,12 +103,12 @@ namespace UtilityService
                         }
                     };
                 }
-            else
-                return new ResponseEntity<bool>()
-                {
-                    Data = false,
-                    StatusCode = StatusCode.VpnNotConnected
-                };
+
+            return new ResponseEntity<bool>()
+            {
+                Data = false,
+                StatusCode = StatusCode.VpnNotConnected
+            };
         }
     }
 }

@@ -85,6 +85,11 @@ namespace UtilityService
                 }
             }
         }
+        /// <summary>
+        /// Get ClientSecret and Token separated with |
+        /// </summary>
+        /// <param name="sourceAppCd">sourceAppCd</param>
+        /// <returns>Returns ClientSecret and Token</returns>
         public static async Task<ResponseEntity<string>> GetTokenAsync(SourceAppCd sourceAppCd)
         {
             var clientSecret = await GetClientSecretAsync(sourceAppCd);
@@ -103,7 +108,7 @@ namespace UtilityService
                     var token = (string)parsedJson["access_token"];
                     return new ResponseEntity<string>()
                     {
-                        Data = $"{schema} {token}",
+                        Data = $"{clientSecret.Data}|{schema} {token}",
                         StatusCode = StatusCode.OK
                     };
                 }

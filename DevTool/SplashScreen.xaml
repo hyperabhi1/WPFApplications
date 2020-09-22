@@ -7,17 +7,17 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         WindowStyle="None"
-        Width="700" 
-        Height="450"
+        Width="480" 
+        Height="480"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>
-        <Image gif:ImageBehavior.AnimatedSource="Resources/Loading0.gif"
+        <Image gif:ImageBehavior.AnimatedSource="Resources/Loading3.gif"
                Cursor="Wait"
                Margin="0"
                Stretch="Fill"
-               Width="700" 
-               Height="450">
+               Width="480" 
+               Height="480">
         </Image>
     </Grid>
 </Window>

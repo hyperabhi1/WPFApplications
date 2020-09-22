@@ -39,6 +39,9 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -73,11 +76,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TokenGenerator.xaml.cs">
+      <DependentUpon>TokenGenerator.xaml</DependentUpon>
+    </Compile>
     <Page Include="ErrorScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TokenGenerator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,6 +135,19 @@
       <Project>{92305742-cbd7-442d-be95-e35ee68d5dc3}</Project>
       <Name>ModelService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UtilityService\UtilityService.csproj">
+      <Project>{075b6532-1bd8-4982-bb55-0e2eb68260ce}</Project>
+      <Name>UtilityService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Loading3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\TokenGeneratorIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

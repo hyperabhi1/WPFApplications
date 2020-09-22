@@ -15,9 +15,27 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
+            #region CommandLine
+
+            //ThreadSupport.ExecuteWithTimeLimit(new TimeSpan(0, 0, 0, 2),
+            //    () =>
+            //    {
+            //        CommandLine.ExecuteCommand("rasdial.exe",
+            //            "\"backup-vpn\" \"abhishek.singh1@bold.com\" \"5nXhjv4j\"");
+            //    });
+            //var connectBackupVpn =  CommandLine.ExecuteCommand("rasdial.exe", "\"backup-vpn\" \"abhishek.singh1@bold.com\" \"5nXhjv4j\"");
+            //var disconnectBackupVpn = CommandLine.ExecuteCommand("rasdial.exe", "\"backup-vpn\" /disconnect");
+            //var connectBoldVpnAzure = CommandLine.ExecuteCommand("powershell.exe", "rasautou.exe -o -f \"C:\\Users\\abhishek.singh1\\AppData\\Roaming\\Microsoft\\Network\\Connections\\Pbk\\rasphone.pbk\" -e \"BOLD-VPN-AZURE\"");
+            //var connectBoldVpnAzure1 = CommandLine.ExecuteCommand("cmd.exe", "powershell.exe rasautou.exe -o -f \"C:\\Users\\abhishek.singh1\\AppData\\Roaming\\Microsoft\\Network\\Connections\\Pbk\\rasphone.pbk\" -e \"BOLD-VPN-AZURE\"");
+            //var connectBoldVpnAzure = PowerShell.ExecuteCommand("rasautou.exe", "-o -f \"C:\\Users\\abhishek.singh1\\AppData\\Roaming\\Microsoft\\Network\\Connections\\Pbk\\rasphone.pbk\" -e \"BOLD-VPN-AZURE\"");
+            var disconnectBoldVpnAzure = PowerShell.ExecuteCommand("rasdial.exe", "\"BOLD-VPN-AZURE\" /disconnect");
+            var x = 0;
+            #endregion
+
+
             #region Bold
-            var clientSecret = Bold.GetClientSecretAsync(SourceAppCd.ATEST_PRD_A_COR).Result;
-            var token = Bold.GetTokenAsync(SourceAppCd.ATEST_PRD_A_COR).Result;
+            var clientSecret = Bold.GetClientSecretAsync(SourceAppCd.ATEST_SND_A_COR).Result;
+            var token = Bold.GetTokenAsync(SourceAppCd.ATEST_SND_A_COR).Result;
             var bold1 = 0;
             #endregion
 
