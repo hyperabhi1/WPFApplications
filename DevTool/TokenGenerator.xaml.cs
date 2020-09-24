@@ -41,11 +41,15 @@ namespace DevTool
                 {
                     TextBoxSnbClientSecret.Text = snbToken.Data.Split('|')[0];
                     TextBoxSnbToken.Text = snbToken.Data.Split('|')[1];
+                    TextBoxSnbToken.Width = ViewboxSnbToken.ActualWidth;
+                    TextBoxSnbToken.Height = ViewboxSnbToken.ActualHeight;
                 }
                 else
                 {
                     TextBoxSnbClientSecret.Text = snbToken.Error.UiSafeMessage;
                     TextBoxSnbToken.Text = snbToken.Error.UiSafeMessage;
+                    TextBoxSnbToken.Width = ViewboxSnbToken.ActualWidth;
+                    TextBoxSnbToken.Height = ViewboxSnbToken.ActualHeight;
                 }
                 ImageLoading.Visibility = Visibility.Hidden;
                 IsBusy = false;
@@ -66,11 +70,15 @@ namespace DevTool
                 {
                     TextBoxPrdClientSecret.Text = prdToken.Data.Split('|')[0];
                     TextBoxPrdToken.Text = prdToken.Data.Split('|')[1];
+                    TextBoxPrdToken.Width = ViewboxPrdToken.ActualWidth;
+                    TextBoxPrdToken.Height = ViewboxPrdToken.ActualHeight;
                 }
                 else
                 {
                     TextBoxPrdClientSecret.Text = prdToken.Error.UiSafeMessage;
                     TextBoxPrdToken.Text = prdToken.Error.DeveloperMessage;
+                    TextBoxPrdToken.Width = ViewboxPrdToken.ActualWidth;
+                    TextBoxPrdToken.Height = ViewboxPrdToken.ActualHeight;
                 }
                 ImageLoading.Visibility = Visibility.Hidden;
                 IsBusy = false;

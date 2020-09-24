@@ -16,14 +16,14 @@ namespace UtilityService
         private static readonly string SandboxAuthUrl = "https://sandbox-auth.livecareer.com";
         private static readonly string ProductionAuthUrl = "https://auth.livecareer.com";
         private static string body = String.Empty;
-        private static string tokenUrl = String.Empty;
-        private static string authUrl = String.Empty;
+        private static string _tokenUrl = String.Empty;
+        private static string _authUrl = String.Empty;
         private static string GetAuthUrl(SourceAppCd sourceAppCd)
         {
             var authBaseUrl = (sourceAppCd == SourceAppCd.ATEST_PRD_A_COR) ? ProductionAuthUrl : SandboxAuthUrl;
-            tokenUrl = $"{authBaseUrl}/oauth/token";
-            authUrl = $"{authBaseUrl}/v1/secrets/{sourceAppCd}";
-            return authUrl;
+            _tokenUrl = $"{authBaseUrl}/oauth/token";
+            _authUrl = $"{authBaseUrl}/v1/secrets/{sourceAppCd}";
+            return _authUrl;
         }
         private static string GetBody(string sourceAppCd, string clientSecret)
         {
@@ -99,7 +99,7 @@ namespace UtilityService
             }
             else
             {
-                HttpResponseMessage response = await HttpClient.PostAsync(tokenUrl, new StringContent(GetBody(sourceAppCd.ToString(), clientSecret.Data), Encoding.UTF8, "text/plain"));
+                HttpResponseMessage response = await HttpClient.PostAsync(_tokenUrl, new StringContent(GetBody(sourceAppCd.ToString(), clientSecret.Data), Encoding.UTF8, "text/plain"));
                 var content = await response.Content.ReadAsStringAsync();
                 if (response.StatusCode == HttpStatusCode.OK)
                 {

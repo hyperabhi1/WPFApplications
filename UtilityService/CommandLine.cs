@@ -2,12 +2,34 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
 using ModelService;
 
 namespace UtilityService
 {
     public class CommandLine
     {
+        /// <summary>
+        /// Gets the Process object
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="argument"></param>
+        /// <returns>Object of the Process type</returns>
+        public static Process GetProcess(string fileName, string argument)
+        {
+            return new Process
+            {
+                StartInfo =
+                {
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    FileName = fileName,
+                    CreateNoWindow = true,
+                    Arguments = argument,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                }
+            };
+        }
         /// <summary>
         /// Executes the command
         /// </summary>
@@ -65,7 +87,7 @@ namespace UtilityService
         /// <param name="fileName">Default: cmd.exe</param>
         /// <param name="argument">Default: ping http://www.google.com</param>
         /// <returns>Console Output</returns>
-        public static ResponseEntity<string> ExecuteCommand(string fileName = "cmd.exe", string argument = "ping http://www.google.com")
+        public async static Task<ResponseEntity<string>> ExecuteCommand(string fileName = "cmd.exe", string argument = "ping http://www.google.com")
         {
             // Start the child process.
             Process p = new Process
@@ -86,7 +108,7 @@ namespace UtilityService
             // reading to the end of its redirected stream.
             // p.WaitForExit();
             // Read the output stream first and then wait.
-            string consoleOutput = p.StandardOutput.ReadToEnd();
+            string consoleOutput = await p.StandardOutput.ReadToEndAsync();
             p.WaitForExit();
             p.Close();
             return new ResponseEntity<string>()

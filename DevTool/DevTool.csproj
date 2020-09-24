@@ -65,9 +65,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ErrorScreen.xaml.cs">
       <DependentUpon>ErrorScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Extensions.cs" />
     <Compile Include="GridHelpers.cs" />
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
@@ -76,9 +80,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="VpnConnector.xaml.cs">
+      <DependentUpon>VpnConnector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TokenGenerator.xaml.cs">
       <DependentUpon>TokenGenerator.xaml</DependentUpon>
     </Compile>
+    <Page Include="Dashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ErrorScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -86,6 +97,10 @@
     <Page Include="SplashScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VpnConnector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TokenGenerator.xaml">
       <SubType>Designer</SubType>
@@ -147,7 +162,16 @@
     <Resource Include="Resources\Loading3.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\TokenGeneratorIcon.png" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\TokenGenerator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\VPN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\DevTool.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
